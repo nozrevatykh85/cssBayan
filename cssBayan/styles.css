@@ -1,145 +1,147 @@
     html {
-    width: 100%;
-    height: 100%;
-    perspective: 900;
-    overflow-y: scroll;
-    background-color: #dce7eb;
-    font-family: sans-serif;
-}
-
-.outer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.accordion {
-    width: 50%;
-}
-
-img {
-    display: block;
-    margin: auto;
-    width: 50%;
-}
-
-@media (hover: hover) {
-    /* when hover is supported */
-    ul li input[type=radio]:hover~img {
+        width: 100%;
+        height: 100%;
+        perspective: 900;
+        overflow-y: scroll;
+        background-color: #dce7eb;
+        font-family: sans-serif;
+    }
+    
+    .outer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .accordion {
+        width: 50%;
+    }
+    
+    img {
+        display: block;
+        margin: auto;
+        width: 50%;
+    }
+    
+    @media (hover: hover) {
+        /* when hover is supported */
+        ul li input[type=radio]:hover~img {
+            display: block;
+        }
+        ul li input[type=radio]:hover~i:before {
+            transform: translate(2px, 0) rotate(45deg);
+        }
+        ul li input[type=radio]:hover~i:after {
+            transform: translate(-2px, 0) rotate(-45deg);
+        }
+        .accordion:hover ul li i:before,
+        .accordion:hover ul li i:after {
+            content: "";
+            position: absolute;
+            background-color: blue;
+            width: 3px;
+            height: 9px;
+            display: inline;
+        }
+        .accordion:hover h2 {
+            color: blue;
+        }
+        .accordion:hover {
+            cursor: grab;
+        }
+    }
+    
+    h1 {
+        text-transform: uppercase;
+        font-size: 36px;
+        line-height: 42px;
+        letter-spacing: 3px;
+        font-weight: 100;
+    }
+    
+    h2 {
+        font-size: 24px;
+        line-height: 34px;
+        font-weight: 300;
+        letter-spacing: 1px;
+        display: block;
+        margin: 0;
+        cursor: pointer;
+    }
+    
+    ul {
+        list-style: none;
+        perspective: 900;
+        padding: 0;
+        margin: 0;
+    }
+    
+    ul li {
+        position: relative;
+        padding: 0;
+        margin: 0;
+        padding-bottom: 4px;
+        padding-top: 18px;
+        border-top: 1px dotted #dce7eb;
+    }
+    
+    ul li i {
+        position: absolute;
+        transform: translate(-6px, 0);
+        margin-top: 16px;
+        right: 0;
+    }
+    
+    ul li i:before,
+    ul li i:after {
+        display: none;
+    }
+    
+    ul li i:before {
+        transform: translate(-2px, 0) rotate(45deg);
+    }
+    
+    ul li i:after {
+        transform: translate(2px, 0) rotate(-45deg);
+    }
+    
+    ul li input[type=radio] {
+        position: absolute;
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0;
+    }
+    
+    ul li input[type=radio]~img {
+        display: none;
+    }
+    
+    ul li input[type=radio]:checked~img {
         display: block;
     }
-    ul li input[type=radio]:hover~i:before {
+    
+    ul li input[type=radio]:checked~i:before {
         transform: translate(2px, 0) rotate(45deg);
     }
-    ul li input[type=radio]:hover~i:after {
+    
+    ul li input[type=radio]:checked~i:after {
         transform: translate(-2px, 0) rotate(-45deg);
     }
-    .accordion:hover ul li i:before,
-    .accordion:hover ul li i:after {
-        content: "";
-        position: absolute;
-        background-color: blue;
-        width: 3px;
-        height: 9px;
-        display: inline;
+    
+    @media only screen and (min-width: 320px) {
+        img {
+            width: 100%;
+        }
     }
-    .accordion:hover h2 {
-        color: blue;
+    
+    @media only screen and (min-width: 820px) {
+        img {
+            width: 75%;
+        }
     }
-    .accordion:hover {
-        cursor: grab;
-    }
-}
-
-h1 {
-    text-transform: uppercase;
-    font-size: 36px;
-    line-height: 42px;
-    letter-spacing: 3px;
-    font-weight: 100;
-}
-
-h2 {
-    font-size: 24px;
-    line-height: 34px;
-    font-weight: 300;
-    letter-spacing: 1px;
-    display: block;
-    margin: 0;
-    cursor: pointer;
-}
-
-ul {
-    list-style: none;
-    perspective: 900;
-    padding: 0;
-    margin: 0;
-}
-
-ul li {
-    position: relative;
-    padding: 0;
-    margin: 0;
-    padding-bottom: 4px;
-    padding-top: 18px;
-    border-top: 1px dotted #dce7eb;
-}
-
-ul li i {
-    position: absolute;
-    transform: translate(-6px, 0);
-    margin-top: 16px;
-    right: 0;
-}
-
-ul li i:before,
-ul li i:after {
-    display: none;
-}
-
-ul li i:before {
-    transform: translate(-2px, 0) rotate(45deg);
-}
-
-ul li i:after {
-    transform: translate(2px, 0) rotate(-45deg);
-}
-
-ul li input[type=radio] {
-    position: absolute;
-    cursor: pointer;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    opacity: 0;
-}
-
-ul li input[type=radio]~img {
-    display: none;
-}
-
-ul li input[type=radio]:checked~img {
-    display: block;
-}
-
-ul li input[type=radio]:checked~i:before {
-    transform: translate(2px, 0) rotate(45deg);
-}
-
-ul li input[type=radio]:checked~i:after {
-    transform: translate(-2px, 0) rotate(-45deg);
-}
-
-@media only screen and (min-width: 320px) {
-    img {
-        width: 100%;
-    }
-}
-
-@media only screen and (min-width: 820px) {
-    img {
-        width: 75%;
-    }
+    
     @media only screen and (min-width: 1920px) {
         img {
             width: 50%;
